@@ -7,6 +7,8 @@ microservice would be written in a different language, with as many people
 participating as makes sense, and each join point using a different protocol
 or service.
 
+Entirely inspired by https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition
+
 For reasons of sanity, I think we should commit to using docker-compose so that
 it's possible to run locally.
 
