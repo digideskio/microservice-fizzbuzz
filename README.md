@@ -9,8 +9,8 @@ or service.
 
 Entirely inspired by https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition
 
-For reasons of sanity, I think we should commit to using docker-compose so that
-it's possible to run locally.
+For reasons of sanity, I think we should commit to using a monorepo and
+docker-compose so that it's possible/easy to run locally.
 
 ## OG fizzbuzz
 
@@ -62,6 +62,7 @@ The way I see it, these components are viable microservices:
 
 * Criticize my implementation of fizzbuzz
 * Iron out any concerns about The Rules
+* Let me know if you want in
 * Define concrete service boundaries
 * Agree on communication protocols across service boundaries (there should be lots of variety, I'd like to see both queues and dbs)
 * Commit to building a service
