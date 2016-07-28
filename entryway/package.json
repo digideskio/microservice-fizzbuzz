@@ -1,0 +1,25 @@
+{
+  "name": "entryway",
+  "version": "1.0.0",
+  "description": "Entry point into microservice fizzbuzz",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jfhbrook/microservice-fizzbuzz.git"
+  },
+  "author": "Joshua Holbrook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfhbrook/microservice-fizzbuzz/issues"
+  },
+  "homepage": "https://github.com/jfhbrook/microservice-fizzbuzz#readme",
+  "dependencies": {
+    "hapi": "13.5.0",
+    "joi": "9.0.4",
+    "lodash.range": "^3.1.6"
+  }
+}
