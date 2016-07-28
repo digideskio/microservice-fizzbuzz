@@ -7,6 +7,8 @@
 # you're doing.
 Vagrant.configure(2) do |config|
 
+  config.vm.network "private_network", type: "dhcp"
+
   config.vm.define "entryway" do |entryway|
     entryway.vm.box = "ubuntu/trusty64"
     entryway.vm.hostname = 'entryway'
@@ -27,7 +29,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "mysql" do |mysql|
     mysql.vm.box = "ubuntu/trusty64"
     mysql.vm.hostname = 'mysql'
-    mysql.vm.network "forwarded_port", guest: 3306, host: 3306
+    # mysql.vm.network "forwarded_port", guest: 3306, host: 3306
     mysql.vm.provision "shell", inline: <<-SHELL
       debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
       debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
@@ -43,14 +45,16 @@ Vagrant.configure(2) do |config|
     cache.vm.network :forwarded_port, guest: 3000, host: 3000
     cache.vm.synced_folder "./cache", "/cache"
     cache.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get install -y curl
+      apt-get install -y curl
       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
       apt-add-repository -y ppa:brightbox/ruby-ng
-      sudo apt-get update -y
-      sudo apt-get install -y ruby2.3 ruby2.3-dev nodejs
-      sudo npm install npm@3 -g
+      apt-get update -y
+      apt-get install -y ruby2.3 ruby2.3-dev libxml2 libxml2-dev zlib1g zlib1g-dev libxslt1-dev libncurses5-dev sqlite3 libsqlite3-dev nodejs
+      npm install npm@3 -g
       update-alternatives --set ruby /usr/bin/ruby2.3
       update-alternatives --set gem /usr/bin/gem2.3
+      gem install bundler rails
+      update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
     SHELL
   end
 end
