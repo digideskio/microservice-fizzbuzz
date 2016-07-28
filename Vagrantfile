@@ -54,6 +54,10 @@ Vagrant.configure(2) do |config|
       update-alternatives --set gem /usr/bin/gem2.3
       gem install bundler rails
       update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+      cd /cache
+      cp upstart.conf /etc/init/cache.conf
+      bundler install
+      start cache
     SHELL
   end
 end
