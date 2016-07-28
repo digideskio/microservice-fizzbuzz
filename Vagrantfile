@@ -15,14 +15,13 @@ Vagrant.configure(2) do |config|
     entryway.vm.network "forwarded_port", guest: 8000, host: 8000
     entryway.vm.synced_folder "./entryway", "/entryway"
     entryway.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get install -y curl
       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-      sudo apt-get install -y nodejs
-      sudo npm install npm@3 -g
+      apt-get install -y nodejs
+      npm install npm@3 -g
       cd /entryway
       cp upstart.conf /etc/init/entryway.conf
       rm -rf node_modules && npm install
-      sudo start entryway
+      start entryway
     SHELL
   end
 
