@@ -9,8 +9,8 @@ or service.
 
 Entirely inspired by https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition
 
-For reasons of sanity, I think we should commit to using a monorepo and
-docker-compose so that it's possible/easy to run locally.
+For reasons of sanity, I think we should commit to using a monorepo and vagrant
+so that it's possible/easy to run locally.
 
 ## OG fizzbuzz
 
